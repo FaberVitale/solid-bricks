@@ -1,2 +1,2 @@
-export type { BarcodeElement, BarcodeProps, BarcodeOtions } from './types';
+export type { BarcodeElement, BarcodeProps, BarcodeOtions } from './Barcode';
 export { Barcode } from './Barcode';
