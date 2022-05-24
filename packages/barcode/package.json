@@ -6,6 +6,11 @@
     "clean": "rimraf dist",
     "build": "rollup -c"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FaberVitale/solid-bricks",
+    "directory": "packages/barcode"
+  },
   "keywords": [
     "solid",
     "solidjs",
