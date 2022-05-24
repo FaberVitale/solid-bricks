@@ -23,19 +23,19 @@
     "msi",
     "pharmacode"
   ],
-  "main": "dist/cjs/my-lib.js",
-  "module": "dist/esm/my-lib.js",
-  "types": "dist/types/my-lib.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "solid": "./dist/source/my-lib.jsx",
-      "import": "./dist/esm/my-lib.js",
-      "browser": "./dist/esm/my-lib.js",
-      "require": "./dist/cjs/my-lib.js",
-      "node": "./dist/cjs/my-lib.js"
+      "solid": "./dist/source/index.js",
+      "import": "./dist/esm/index.js",
+      "browser": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "node": "./dist/cjs/index.js"
     }
   },
   "dependencies": {
