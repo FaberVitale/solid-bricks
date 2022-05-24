@@ -1,0 +1,15 @@
+*.log
+.idea
+lib
+dist
+docs/
+umd
+build
+coverage
+node_modules
+__snapshots__
+.yarn/*
+.vscode/*
+.env
+.docusaurus
+.nvmrc

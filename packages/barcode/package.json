@@ -1,0 +1,47 @@
+{
+  "name": "@solid-bricks/barcode",
+  "version": "0.1.0",
+  "description": "",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "rollup -c"
+  },
+  "keywords": [
+    "solid",
+    "solidjs",
+    "barcode",
+    "canvas",
+    "code128",
+    "upc",
+    "ean",
+    "itf",
+    "msi",
+    "pharmacode"
+  ],
+  "main": "dist/cjs/my-lib.js",
+  "module": "dist/esm/my-lib.js",
+  "types": "dist/types/my-lib.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "solid": "./dist/source/my-lib.jsx",
+      "import": "./dist/esm/my-lib.js",
+      "browser": "./dist/esm/my-lib.js",
+      "require": "./dist/cjs/my-lib.js",
+      "node": "./dist/cjs/my-lib.js"
+    }
+  },
+  "dependencies": {
+    "jsbarcode": "^3.11.5"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.4.2"
+  },
+  "devDependencies": {
+    "rollup": "^2.74.1",
+    "rollup-preset-solid": "^1.4.0",
+    "solid-js": "^1.4.2"
+  }
+}
