@@ -45,11 +45,35 @@ render(() => <Barcode value="ping-pong" />, root);
 
 #### value
 
-The rendered value, **required**.
+The rendered string, **required**.
 
 #### options
 
-JsBarcode options:  https://github.com/lindell/JsBarcode/wiki/Options
+`JsBarcode` options, see: https://github.com/lindell/JsBarcode/wiki/Options
+
+E.g.
+
+```ts
+{
+  width: 2,
+  height: 100,
+  format: "CODE128",
+  displayValue: true,
+  fontOptions: "",
+  font: "monospace",
+  textAlign: "center",
+  textPosition: "bottom",
+  textMargin: 2,
+  fontSize: 20,
+  background: "#ffffff",
+  lineColor: "#000000",
+  margin: 10,
+  marginTop: undefined,
+  marginBottom: undefined,
+  marginLeft: undefined,
+  marginRight: undefined
+}
+```
 
 
 #### onError
@@ -61,12 +85,21 @@ Default value: `console.error`.
 
 #### as
 
-The element that displays the barcode.
+The element that displays the barcode, one of `svg` | `img` | `canvas`.
 
 Default value: `svg`.
 
 ### Other props
 
-- id
-- class
-- classlist
+- [id](https://developer.mozilla.org/en-US/docs/Web/API/Element/id)
+- [class](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class)
+- [classlist](https://www.solidjs.com/docs/latest/api#classlist)
+
+
+More informations are available at https://github.com/lindell/JsBarcode.
+
+### Reference
+
+- https://github.com/lindell/JsBarcode
+- https://github.com/lindell/JsBarcode
+- https://www.solidjs.com/docs/latest/api

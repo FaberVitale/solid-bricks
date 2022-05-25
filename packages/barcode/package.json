@@ -1,7 +1,7 @@
 {
   "name": "@solid-bricks/barcode",
   "version": "0.1.0",
-  "description": "",
+  "description": "A solid-js component that renders barcodes",
   "scripts": {
     "clean": "rimraf dist",
     "build": "rollup -c"
