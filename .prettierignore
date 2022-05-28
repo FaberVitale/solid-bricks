@@ -15,3 +15,5 @@ __snapshots__
 .nvmrc
 .eslintcache
 LICENSE
+.changeset
+.github

@@ -14,3 +14,5 @@ __snapshots__
 .docusaurus
 .nvmrc
 LICENSE
+.changeset
+.github
