@@ -1,0 +1,5 @@
+.tabContent {
+  composes: position-relative from '../../styles/root.scss';
+  max-width: 100%;
+  overflow: auto;
+}

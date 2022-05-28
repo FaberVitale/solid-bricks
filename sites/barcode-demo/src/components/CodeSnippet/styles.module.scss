@@ -1,0 +1,21 @@
+@import "../../styles/theme.scss";
+
+.floatingBtn {
+  position: absolute;
+  z-index: 3;
+  top: 12px;
+  right: 12px;
+  background: $background;
+}
+
+.pre {
+  border-radius: 8px;
+  font-size: 0.75rem;
+  line-height: 1.1;
+  max-width: 100%;
+  overflow-x: hidden;
+
+  code {
+    max-width: 100%;
+  }
+}

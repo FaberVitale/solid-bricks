@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+$palette-warm: (
+  primary: #BB3B6B,
+  info: #261b34,
+  success: #7ea250,
+  warning: #fb9218,
+  danger: #f44336,
+  background: #f9fafa,
+  dark: #191919,
+  link: #BB3B6B,
+);
+
+$primary: map-get($palette-warm , primary);
+$info: map-get($palette-warm , info);
+$success: map-get($palette-warm , success);
+$warning: map-get($palette-warm , warning);
+$danger: map-get($palette-warm, danger);
+$background: map-get($palette-warm, background);
+$dark: map-get($palette-warm, dark);
+$link: map-get($palette-warm, link);
+$body-background-color: map-get($palette-warm, background);
+
+@import "../node_modules/bulma/sass/utilities/_all.sass";
+@import "../node_modules/bulma/sass/helpers/_all.sass";
+@import "../node_modules/bulma/sass/base/_all.sass";
+@import '../node_modules/bulma/sass/form/_all.sass';
+@import "../node_modules/bulma/sass/elements/button.sass";
+@import "../node_modules/bulma/sass/components/panel.sass";
+@import "../node_modules/bulma/sass/components/tabs.sass";

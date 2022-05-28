@@ -1,0 +1,46 @@
+@use './_mixins.scss';
+@import "./_theme.scss";
+
+:root {
+  touch-action: manipulation;
+
+}
+
+body {
+  min-height: 100vh;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.main {
+  padding: 24px 8px;
+  margin: 0 auto;
+  background: transparent;
+  @media (min-width: $tablet) {
+    max-width: 1200px;
+    max-width: min(1200px, 80%);
+  }
+}
+
+.position-relative {
+  position: relative !important;
+}
+
+.visually-hidden {
+  @include mixins.visually-hidden();
+}
+
+.sticky-barcode {
+  position: sticky;
+  z-index: 5;
+  top: 0;
+  overflow: hidden;
+  background: $background;
+  box-shadow: 0px 2px 5px -4px #000;
+}
+
+.bg-primary {
+  background-color: $background !important;
+}
