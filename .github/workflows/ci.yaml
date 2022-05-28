@@ -20,6 +20,9 @@ jobs:
         with:
           node-version: 'v16.15.0'
           cache: 'pnpm'
+      - name: log info
+        run: >
+          printf 'commit -> %s\nbranch -> %s\n' "$(git rev-parse --short HEAD)" "$(git branch --show-current)"
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Check formatting
