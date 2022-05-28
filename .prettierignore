@@ -1,6 +1,5 @@
 *.log
 .idea
-lib
 dist
 docs/
 umd
@@ -10,8 +9,13 @@ node_modules
 __snapshots__
 .yarn/*
 .vscode/*
+.husky/*
 .env
 .docusaurus
 .nvmrc
 .eslintcache
 LICENSE
+.changeset
+.github
+tsconfig.tsbuildinfo
+pnpm-lock.yaml

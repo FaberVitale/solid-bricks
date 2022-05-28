@@ -18,7 +18,7 @@ const App: Component = () => {
   const [barcodeRenderError, setBarcodeRenderError] = createSignal<
     string | null
   >(null);
-  const hash = createHashSignal(tabs[0].hash);
+  const hash = createHashSignal();
   const [formValues, setFormValues] = createStore<{
     values: BarcodeGeneratorFormValues;
     options: Omit<BarcodeGeneratorFormValues, 'value'>;

@@ -7,6 +7,6 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "target": "es2015",
-    "isolatedModules": true,
+    "isolatedModules": true
   }
 }
