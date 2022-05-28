@@ -15,7 +15,9 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-
+        with:
+          # This makes Actions fetch all Git history
+          fetch-depth: 0
       - name: Use Node ${{ matrix.node }}
         uses: actions/setup-node@v1
         with:
