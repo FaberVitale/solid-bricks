@@ -6,7 +6,31 @@ import type { Options as JsBarcodeOptions } from 'jsbarcode';
 
 export type BarcodeElement = 'svg' | 'canvas' | 'img';
 
-export type BarcodeOtions = JsBarcodeOptions;
+export type BarcodeFormat =
+  | 'CODE39'
+  | 'CODE128'
+  | 'CODE128A'
+  | 'CODE128B'
+  | 'CODE128C'
+  | 'EAN13'
+  | 'EAN8'
+  | 'EAN5'
+  | 'EAN2'
+  | 'UPC'
+  | 'UPCE'
+  | 'ITF14'
+  | 'ITF'
+  | 'MSI'
+  | 'MSI10'
+  | 'MSI11'
+  | 'MSI1010'
+  | 'MSI1110'
+  | 'pharmacode'
+  | 'codabar';
+
+export interface BarcodeOtions extends Omit<JsBarcodeOptions, 'format'> {
+  format?: BarcodeFormat;
+}
 
 export interface BarcodeProps {
   /**
@@ -57,7 +81,7 @@ export function Barcode(props: BarcodeProps): JSX.Element {
       () => [local.value, local.options, local.as],
       () => {
         try {
-          JsBarcode(elemRef, local.value, local.options);
+          JsBarcode(elemRef, local.value, Object.assign({}, local.options));
         } catch (err) {
           local.onError?.(err);
         }

@@ -27,12 +27,12 @@ pnpm add @solid-bricks/barcode
 ## Usage
 
 ```ts
-import { render } from "solid-js/web";
+import { render } from 'solid-js/web';
 import { Barcode } from '@solid-bricks/barcode';
 
-const root = document.getElementById("app");
+const root = document.getElementById('app');
 
-if(!root) {
+if (!root) {
   throw new Error('root node not found');
 }
 
@@ -75,13 +75,11 @@ E.g.
 }
 ```
 
-
 #### onError
 
 Invoked whenever an error occurs while rendering the barcode.
 
 Default value: `console.error`.
-
 
 #### as
 
@@ -94,7 +92,6 @@ Default value: `svg`.
 - [id](https://developer.mozilla.org/en-US/docs/Web/API/Element/id)
 - [class](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class)
 - [classlist](https://www.solidjs.com/docs/latest/api#classlist)
-
 
 More informations are available at https://github.com/lindell/JsBarcode.
 

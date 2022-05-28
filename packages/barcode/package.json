@@ -4,13 +4,16 @@
   "description": "A solid-js component that renders barcodes",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "lint:ts": "tsc --noEmit",
+    "prepare": "npm run clean && npm run build"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/FaberVitale/solid-bricks",
     "directory": "packages/barcode"
   },
+  "license": "MIT",
   "keywords": [
     "solid",
     "solidjs",
@@ -45,6 +48,7 @@
     "solid-js": "^1.4.2"
   },
   "devDependencies": {
+    "rimraf": "^3.0.2",
     "rollup": "^2.74.1",
     "rollup-preset-solid": "^1.4.0",
     "solid-js": "^1.4.2"
