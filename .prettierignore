@@ -9,6 +9,7 @@ node_modules
 __snapshots__
 .yarn/*
 .vscode/*
+.husky/*
 .env
 .docusaurus
 .nvmrc
