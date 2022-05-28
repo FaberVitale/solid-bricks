@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "prettify": "prettier --write .",
-    "prettify:check": "prettier --check .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "lint:eslint": "eslint --cache . --ext .js,.ts,.tsx,.jsx,.cjs,.mjs,.mts,.cts",
     "lint:eslint:fix": "eslint --cache . --ext .js,.ts,.tsx,.jsx.cjs,.mjs,.mts,.cts --fix",
     "lint:ts:all": "pnpm -r --if-present run lint:ts",

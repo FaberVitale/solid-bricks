@@ -1,48 +1,30 @@
+
 name: CI
-on: [push, pull_request]
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-  build-node:
-    name: Build, lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
-    env:
-      CI: "true"
-      HUSKY: "0"
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node: ["16.x"]
-        os: [ubuntu-latest, windows-latest, macOS-latest]
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-        with:
-          # This makes Actions fetch all Git history
-          fetch-depth: 0
-      - name: Use Node ${{ matrix.node }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node }} # tests across multiple Node versions
+  build:
+    runs-on: ubuntu-latest
 
-      - name: Get windows pnpm cache path
-        if: runner.os == 'windows'
-        run: echo "cache_path=D:\.pnpm-store\v3" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-      - name: Get non-windows pnpm cache path
-        if: runner.os != 'windows'
-        run: echo "cache_path=~/.pnpm-store/v3" >> $GITHUB_ENV
-      - name: Cache ~/.pnpm-store
-        uses: actions/cache@main
+    steps:
+      - uses: actions/checkout@v3
         with:
-          path: ${{ env.cache_path }}
-          key: ${{ runner.os }}-${{ matrix.node-version }}-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-${{ matrix.node-version }}
-      - run: npm install -g pnpm
-      - run: pnpm install --frozen-lockfile
-      - name: format
-        if: runner.os == 'Linux'
-        run: pnpm run prettify:check
-      - name: lint
-        if: runner.os == 'Linux'
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 'v16.15.0'
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Check formatting
+        run: pnpm run format:check
+      - name: Build
+        run: build:packages
+      - name: Lint
         run: pnpm run lint:eslint
-      - name: build packages
-        run: pnpm run build:packages
