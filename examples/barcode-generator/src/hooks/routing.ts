@@ -6,8 +6,8 @@ import {
   onMount,
 } from 'solid-js';
 
-export function createHashSignal(initialValue = ''): Accessor<string> {
-  const [hash, setHash] = createSignal<string>(initialValue);
+export function createHashSignal(): Accessor<string> {
+  const [hash, setHash] = createSignal<string>('');
 
   createEffect(() => {
     const onHashChange = () => {
@@ -21,10 +21,7 @@ export function createHashSignal(initialValue = ''): Accessor<string> {
   });
 
   onMount(() => {
-    const initialValue = hash();
-    if (window.location.hash !== initialValue) {
-      window.location.hash = initialValue;
-    }
+    setHash(window.location.hash);
   });
 
   return hash;

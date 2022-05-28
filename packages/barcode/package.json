@@ -5,8 +5,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "rollup -c",
-    "lint:ts": "tsc --noEmit",
-    "prepare": "npm run clean && npm run build"
+    "lint:ts": "tsc --noEmit"
   },
   "repository": {
     "type": "git",

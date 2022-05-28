@@ -12,7 +12,7 @@ importers:
       eslint-plugin-prettier: ^4.0.0
       husky: ^8.0.1
       lint-staged: ^12.4.2
-      prettier: ^2.6.2
+      prettier: 2.6.2
       typescript: ^4.6.4
     devDependencies:
       '@changesets/cli': 2.22.0
@@ -26,22 +26,7 @@ importers:
       prettier: 2.6.2
       typescript: 4.6.4
 
-  packages/barcode:
-    specifiers:
-      jsbarcode: ^3.11.5
-      rimraf: ^3.0.2
-      rollup: ^2.74.1
-      rollup-preset-solid: ^1.4.0
-      solid-js: ^1.4.2
-    dependencies:
-      jsbarcode: 3.11.5
-    devDependencies:
-      rimraf: 3.0.2
-      rollup: 2.74.1
-      rollup-preset-solid: 1.4.0
-      solid-js: 1.4.2
-
-  sites/barcode-demo:
+  examples/barcode-generator:
     specifiers:
       '@solid-bricks/barcode': workspace:*
       bulma: ^0.9.4
@@ -59,6 +44,21 @@ importers:
       typescript: 4.6.4
       vite: 2.9.9_sass@1.52.1
       vite-plugin-solid: 2.2.6_sass@1.52.1
+
+  packages/barcode:
+    specifiers:
+      jsbarcode: ^3.11.5
+      rimraf: ^3.0.2
+      rollup: ^2.74.1
+      rollup-preset-solid: ^1.4.0
+      solid-js: ^1.4.2
+    dependencies:
+      jsbarcode: 3.11.5
+    devDependencies:
+      rimraf: 3.0.2
+      rollup: 2.74.1
+      rollup-preset-solid: 1.4.0
+      solid-js: 1.4.2
 
 packages:
 
