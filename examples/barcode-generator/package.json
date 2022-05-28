@@ -7,8 +7,22 @@
     "build": "vite build",
     "serve": "vite preview"
   },
+  "keywords": [
+    "barcode",
+    "solid",
+    "solidjs",
+    "solid-js",
+    "code128",
+    "upc",
+    "ean",
+    "itf",
+    "msi",
+    "pharmacode"
+  ],
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "babel-preset-solid": "^1.4.2",
     "bulma": "^0.9.4",
     "sass": "^1.52.1",
     "typescript": "^4.6.4",
