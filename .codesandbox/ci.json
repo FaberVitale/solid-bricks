@@ -1,0 +1,6 @@
+{
+  "packages": ["packages/barcode"],
+  "sandboxes": ["barcode-generator"],
+  "node": "16",
+  "buildCommand": "build:packages"
+}
