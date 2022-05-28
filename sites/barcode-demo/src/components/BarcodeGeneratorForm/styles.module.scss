@@ -9,8 +9,8 @@
     margin-bottom: 0;
   }
 
-  :global(.field[data-field-type="select"]), 
-  :global(.field[data-field-type="color"])  {
+  :global(.field[data-field-type='select']),
+  :global(.field[data-field-type='color']) {
     grid-column: span 1;
   }
 

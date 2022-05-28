@@ -1,9 +1,8 @@
 @use './_mixins.scss';
-@import "./_theme.scss";
+@import './_theme.scss';
 
 :root {
   touch-action: manipulation;
-
 }
 
 body {

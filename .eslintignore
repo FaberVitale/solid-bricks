@@ -17,3 +17,4 @@ LICENSE
 .changeset
 .github
 tsconfig.tsbuildinfo
+pnpm-lock.yaml
