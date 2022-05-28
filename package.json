@@ -6,13 +6,17 @@
     "prettify": "prettier --write .",
     "prettify:check": "prettier --check .",
     "lint:eslint": "eslint --cache . --ext .js,.ts,.tsx,.jsx,.cjs,.mjs,.mts,.cts",
-    "lint:eslint:fix": "eslint --cache . --ext .js,.ts,.tsx,.jsx.cjs,.mjs,.mts,.cts --fix"
+    "lint:eslint:fix": "eslint --cache . --ext .js,.ts,.tsx,.jsx.cjs,.mjs,.mts,.cts --fix",
+    "lint:ts:all": "pnpm -r --if-present run lint:ts",
+    "release": "changeset publish",
+    "build:packages": "pnpm --filter ./packages/* --if-present run build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FaberVitale/solid-bricks.git"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.22.0",
     "@typescript-eslint/eslint-plugin": "^5.26.0",
     "@typescript-eslint/parser": "^5.26.0",
     "eslint": "^8.16.0",
@@ -25,11 +29,5 @@
   "bugs": {
     "url": "https://github.com/FaberVitale/solid-bricks/issues"
   },
-  "homepage": "https://github.com/FaberVitale/solid-bricks#readme",
-  "dependencies": {
-    "eslint-scope": "^7.1.1",
-    "prettier-linter-helpers": "^1.0.0",
-    "eslint-visitor-keys": "^3.3.0",
-    "eslint-utils": "^3.0.0"
-  }
+  "homepage": "https://github.com/FaberVitale/solid-bricks#readme"
 }
