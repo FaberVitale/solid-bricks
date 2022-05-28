@@ -15,10 +15,10 @@
   },
   "license": "MIT",
   "keywords": [
+    "barcode",
     "solid",
     "solidjs",
-    "barcode",
-    "canvas",
+    "solid-js",
     "code128",
     "upc",
     "ean",
