@@ -16,3 +16,4 @@ __snapshots__
 LICENSE
 .changeset
 .github
+tsconfig.tsbuildinfo
