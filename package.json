@@ -10,6 +10,7 @@
     "lint:ts:all": "pnpm -r --if-present run lint:ts",
     "release": "pnpm run build:packages && changeset publish",
     "build:packages": "pnpm --filter ./packages/* --if-present run build",
+    "build:examples": "pnpm --filter ./examples/* --if-present run build",
     "prepare": "husky install",
     "pre-commit:monorepo": "lint-staged",
     "pre-commit:all": "pnpm run pre-commit:monorepo"
