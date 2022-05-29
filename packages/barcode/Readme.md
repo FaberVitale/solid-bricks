@@ -26,6 +26,10 @@ yarn add @solid-bricks/barcode
 pnpm add @solid-bricks/barcode
 ```
 
+## Examples
+
+- barcode-generator: **[site](https://fabervitale.github.io/solid-bricks/examples/barcode-generator) - [source](https://github.com/FaberVitale/solid-bricks/tree/main/examples/barcode-generator)**
+
 ## Usage
 
 ```ts
