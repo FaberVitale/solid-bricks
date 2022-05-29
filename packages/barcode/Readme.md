@@ -1,4 +1,4 @@
-# @solid-bricks/barcode
+![@solid-bricks/barcode banner](/repo-media/barcode-banner.png)
 
 ## Description
 

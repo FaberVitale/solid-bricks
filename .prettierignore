@@ -20,3 +20,4 @@ LICENSE
 tsconfig.tsbuildinfo
 pnpm-lock.yaml
 .babelrc
+repo-media/*
