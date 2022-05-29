@@ -4,6 +4,7 @@ node_modules
 .DS_Store
 lib
 dist
+*.local
 umd
 build
 coverage

@@ -28,7 +28,7 @@ jobs:
         run: pnpm run build:packages
 
       - name: Build examples
-        run: pnpm run build:examples
+        run: pnpm run build:examples:gh-pages
 
       - name: Deploy barcode-generator 🚀
         uses: JamesIves/github-pages-deploy-action@v4.3.3

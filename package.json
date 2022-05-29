@@ -11,6 +11,7 @@
     "release": "pnpm run build:packages && changeset publish",
     "build:packages": "pnpm --filter ./packages/* --if-present run build",
     "build:examples": "pnpm --filter ./examples/* --if-present run build",
+    "build:examples:gh-pages": "pnpm --filter ./examples/* --if-present run build:gh-pages",
     "prepare": "husky install",
     "pre-commit:monorepo": "lint-staged",
     "pre-commit:all": "pnpm run pre-commit:monorepo"
