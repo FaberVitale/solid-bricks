@@ -16,5 +16,9 @@ module.exports = {
   ],
   rules: {
     'prettier/prettier': 1,
+    '@typescript-eslint/no-unused-vars': [
+      1,
+      { argsIgnorePattern: '^_', ignoreRestSiblings: true, args: 'none' },
+    ],
   },
 };
