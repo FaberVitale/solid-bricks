@@ -12,6 +12,7 @@
     "url": "https://github.com/FaberVitale/solid-bricks",
     "directory": "packages/barcode"
   },
+  "sideEffects": false,
   "license": "MIT",
   "keywords": [
     "barcode",
@@ -33,7 +34,7 @@
   ],
   "exports": {
     ".": {
-      "solid": "./dist/source/index.js",
+      "solid": "./dist/source/index.jsx",
       "import": "./dist/esm/index.js",
       "browser": "./dist/esm/index.js",
       "require": "./dist/cjs/index.js",

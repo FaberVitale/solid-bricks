@@ -1,0 +1,9 @@
+{
+  "packages": ["packages/barcode"],
+  "sandboxes": ["/examples/barcode-generator"],
+  "node": "16",
+  "buildCommand": "build:packages",
+  "publishDirectory": {
+    "@solid-bricks/barcode": "packages/barcode"
+  }
+}
