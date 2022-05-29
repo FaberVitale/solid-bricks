@@ -1,0 +1,38 @@
+name: Deploy examples
+on:
+  push:
+    branches:
+      - main
+permissions: 
+  contents: write
+jobs:
+  build-and-deploy:
+    # prevents this action from running on forks
+    if: github.repository == 'FaberVitale/solid-bricks'
+    concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 'v16.15.0'
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build packages
+        run: pnpm run build:packages
+
+      - name: Build examples
+        run: pnpm run build:examples:gh-pages
+
+      - name: Deploy barcode-generator 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: examples/barcode-generator/dist # The folder the action should deploy.
+          target-folder: examples/barcode-generator

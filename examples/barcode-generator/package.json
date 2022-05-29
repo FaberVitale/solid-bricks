@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "build:gh-pages": "vite build --base=\"/solid-bricks/examples/barcode-generator/\""
   },
   "keywords": [
     "barcode",
