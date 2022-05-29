@@ -1,4 +1,6 @@
-![@solid-bricks/barcode banner](/repo-media/barcode-banner.png)
+![@solid-bricks/barcode](https://raw.githubusercontent.com/FaberVitale/solid-bricks/main/repo-media/barcode-banner.png)
+
+# [@solid-bricks/barcode](https://github.com/FaberVitale/solid-bricks/packages/barcode) &middot; ![npm](https://img.shields.io/npm/v/@solid-bricks/barcode)
 
 ## Description
 
@@ -100,3 +102,7 @@ More informations are available at https://github.com/lindell/JsBarcode.
 - https://github.com/lindell/JsBarcode
 - https://github.com/lindell/JsBarcode
 - https://www.solidjs.com/docs/latest/api
+
+## License
+
+[MIT](https://raw.githubusercontent.com/FaberVitale/solid-bricks/main/LICENSE)
