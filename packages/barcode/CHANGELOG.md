@@ -1,5 +1,11 @@
 # @solid-bricks/barcode
 
+## 0.2.1
+
+### Patch Changes
+
+- 13cd391: docs: add barcode generator example
+
 ## 0.2.0
 
 ### Minor Changes
