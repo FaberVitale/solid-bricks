@@ -2,7 +2,7 @@ name: Deploy examples
 on:
   push:
     branches:
-      - docs/publish-examples
+      - main
 permissions: 
   contents: write
 jobs:
