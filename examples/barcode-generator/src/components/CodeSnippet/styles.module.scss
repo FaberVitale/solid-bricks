@@ -1,11 +1,11 @@
-@import '../../styles/theme.scss';
+@use '../../styles/_theme.scss';
 
 .floatingBtn {
   position: absolute;
   z-index: 3;
   top: 12px;
   right: 12px;
-  background: $background;
+  background: theme.$background;
 }
 
 .pre {
