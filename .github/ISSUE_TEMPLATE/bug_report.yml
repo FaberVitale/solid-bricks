@@ -19,7 +19,7 @@ body:
     attributes:
       label: System Info
       description: Output of `npx envinfo --system  --binaries --browsers`
-      render: "ts"
+      render: bash
       placeholder: System, Binaries, Browsers
     validations:
       required: true
