@@ -1,6 +1,6 @@
 ![@solid-bricks/barcode](https://raw.githubusercontent.com/FaberVitale/solid-bricks/main/repo-media/barcode-banner.png)
 
-# [@solid-bricks/barcode](https://github.com/FaberVitale/solid-bricks/packages/barcode) &middot; ![npm](https://img.shields.io/npm/v/@solid-bricks/barcode)
+# [@solid-bricks/barcode](https://github.com/FaberVitale/solid-bricks/blob/main/packages/barcode/Readme.md) &middot; ![npm](https://img.shields.io/npm/v/@solid-bricks/barcode)
 
 ## Description
 
@@ -45,7 +45,7 @@ if (!root) {
 render(() => <Barcode value="ping-pong" />, root);
 ```
 
-## API Refence
+## API Reference
 
 ### Main barcode props
 
