@@ -49,12 +49,12 @@ render(() => <Barcode value="ping-pong" />, root);
 
 ### Barcode props
 
-| name      | type                     |        required         | description                                                                                                                |
-| --------- | ------------------------ | :---------------------: | -------------------------------------------------------------------------------------------------------------------------- |
-| `value`   | `string`                 |         **yes**         | the value rendered in the barcode.                                                                                         |
-| `onError` | `Function`               | default `console.error` | Callback invoked whenever an error occurs while rendering the barcode.                                                     |
-| `as`      | `"svg"\|"img"\|"canvas"` |     default `"svg"`     | The element that displays the barcode.                                                                                     |
-| `options` | `Object`                 |      default: `{}`      | Additional barcode customization, see `JsBarcode` [wiki](https://github.com/lindell/JsBarcode/wiki/Options) for more info. |
+|   name    |            type            |         required         | description                                                                                                      |
+| :-------: | :------------------------: | :----------------------: | ---------------------------------------------------------------------------------------------------------------- |
+|  `value`  |          `string`          |         **yes**          | the value rendered in the barcode.                                                                               |
+| `onError` |         `Function`         | default: `console.error` | Callback invoked whenever an error occurs while rendering the barcode.                                           |
+|   `as`    | `"svg" \|"img" \|"canvas"` |     default: `"svg"`     | The element that displays the barcode.                                                                           |
+| `options` |          `Object`          |      default: `{}`       | Additional customization. See [JsBarcode wiki](https://github.com/lindell/JsBarcode/wiki/Options) for more info. |
 
 ### Barcode options example
 

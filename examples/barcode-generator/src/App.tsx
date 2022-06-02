@@ -97,6 +97,7 @@ const App: Component = () => {
           value="p"
           as="svg"
           class="barcode-logo"
+          elemProps={{ 'aria-hidden': true }}
           options={{
             displayValue: false,
             width: 1,

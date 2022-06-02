@@ -1,6 +1,5 @@
 import JsBarcode from 'jsbarcode';
-import type { JSX } from 'solid-js';
-import { mergeProps, splitProps, createEffect, on } from 'solid-js';
+import { createMemo, JSX, mergeProps, createEffect, on } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 import type { Options as JsBarcodeOptions } from 'jsbarcode';
 
@@ -56,9 +55,12 @@ export interface BarcodeProps {
    * Default value: `console.error`
    */
   onError?(reason: unknown): void;
-  id?: string | undefined;
   class?: JSX.IntrinsicElements['img']['class'];
-  classlist?: JSX.IntrinsicElements['img']['classList'];
+  classList?: JSX.IntrinsicElements['img']['classList'];
+  elemProps?:
+    | JSX.IntrinsicElements['svg']
+    | JSX.IntrinsicElements['img']
+    | JSX.IntrinsicElements['canvas'];
 }
 
 const defaultProps: Required<Pick<BarcodeProps, 'as' | 'onError'>> = {
@@ -67,12 +69,7 @@ const defaultProps: Required<Pick<BarcodeProps, 'as' | 'onError'>> = {
 };
 
 export function Barcode(props: BarcodeProps): JSX.Element {
-  const [local, otherProps] = splitProps(mergeProps(defaultProps, props), [
-    'as',
-    'onError',
-    'value',
-    'options',
-  ]);
+  const local = mergeProps(defaultProps, props);
 
   let elemRef: SVGElement | HTMLCanvasElement | HTMLImageElement | undefined;
 
@@ -89,5 +86,37 @@ export function Barcode(props: BarcodeProps): JSX.Element {
     )
   );
 
-  return <Dynamic component={local.as} ref={elemRef} {...otherProps} />;
+  const memoClassList = createMemo(() => {
+    let elemPropsClassList, elemPropsClass, localClass;
+
+    if (local.elemProps) {
+      elemPropsClassList = local.elemProps.classList;
+      elemPropsClass =
+        local.elemProps.class != null
+          ? { [local.elemProps.class]: !!local.elemProps.class }
+          : null;
+    }
+
+    if (local.class != null) {
+      localClass = { [local.class + '']: !!local.class };
+    }
+
+    return Object.assign(
+      {},
+      elemPropsClassList,
+      elemPropsClass,
+      local.classList,
+      localClass
+    );
+  });
+
+  return (
+    <Dynamic
+      {...local.elemProps}
+      class={undefined}
+      component={local.as}
+      ref={elemRef}
+      classList={memoClassList()}
+    />
+  );
 }
