@@ -55,8 +55,17 @@ export interface BarcodeProps {
    * Default value: `console.error`
    */
   onError?(reason: unknown): void;
-  class?: JSX.IntrinsicElements['img']['class'];
+  /**
+   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class
+   */
+  class?: string | undefined;
+  /**
+   * @see https://www.solidjs.com/docs/latest/api#classlist
+   */
   classList?: JSX.IntrinsicElements['img']['classList'];
+  /**
+   * Additional element properties.
+   */
   elemProps?:
     | JSX.IntrinsicElements['svg']
     | JSX.IntrinsicElements['img']

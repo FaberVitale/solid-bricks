@@ -49,12 +49,15 @@ render(() => <Barcode value="ping-pong" />, root);
 
 ### Barcode props
 
-|   name    |            type            |         required         | description                                                                                                      |
-| :-------: | :------------------------: | :----------------------: | ---------------------------------------------------------------------------------------------------------------- |
-|  `value`  |          `string`          |         **yes**          | the value rendered in the barcode.                                                                               |
-| `onError` |         `Function`         | default: `console.error` | Callback invoked whenever an error occurs while rendering the barcode.                                           |
-|   `as`    | `"svg" \|"img" \|"canvas"` |     default: `"svg"`     | The element that displays the barcode.                                                                           |
-| `options` |          `Object`          |      default: `{}`       | Additional customization. See [JsBarcode wiki](https://github.com/lindell/JsBarcode/wiki/Options) for more info. |
+|    name     |                                               type                                                |         required         | description                                                                                                      |
+| :---------: | :-----------------------------------------------------------------------------------------------: | :----------------------: | ---------------------------------------------------------------------------------------------------------------- |
+|   `value`   |                                             `string`                                              |         **yes**          | the value rendered in the barcode.                                                                               |
+|  `onError`  |                                            `Function`                                             | default: `console.error` | Callback invoked whenever an error occurs while rendering the barcode.                                           |
+|    `as`     |                                   `"svg" \| "img" \| "canvas"`                                    |     default: `"svg"`     | The element that displays the barcode.                                                                           |
+|  `options`  |                                             `Object`                                              |      default: `{}`       | Additional customization. See [JsBarcode wiki](https://github.com/lindell/JsBarcode/wiki/Options) for more info. |
+|   `class`   |                                             `string`                                              |   default: `undefined`   | The element class.                                                                                               |
+| `classList` |                                     `Record<string, boolean>`                                     |   default: `undefined`   | [classList docs](https://www.solidjs.com/docs/latest/api#classlist)                                              |
+| `elemProps` | `JSX.IntrinsicElements['svg'] \| JSX.IntrinsicElements['img'] \| JSX.IntrinsicElements['canvas']` |      default: `{}`       | A record of valid element (see `as`) props.                                                                      |
 
 ### Barcode options example
 
