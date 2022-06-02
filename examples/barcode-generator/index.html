@@ -55,9 +55,9 @@
         will-change: transform;
       }
 
-      @media (prefers-reduced-motion), (max-width: 768px) {
+      @media (prefers-reduced-motion), (max-width: 500px) {
         body::after {
-          animation-play-state: paused;
+          animation: none;
         }
       }
     </style>

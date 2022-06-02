@@ -1,5 +1,6 @@
 @use './_mixins.scss';
 @import './_theme.scss';
+@import './gh-triangle.scss';
 
 :root {
   touch-action: manipulation;
@@ -17,6 +18,11 @@ body {
   padding: 24px 8px;
   margin: 0 auto;
   background: transparent;
+
+  @media (min-width: 500px) {
+    max-width: 80%;
+  }
+
   @media (min-width: $tablet) {
     max-width: 1200px;
     max-width: min(1200px, 80%);
@@ -37,9 +43,72 @@ body {
   top: 0;
   overflow: hidden;
   background: $background;
+  border-radius: 6px 6px 0 0;
   box-shadow: 0px 2px 5px -4px #000;
+}
+
+.barcode-logo {
+  margin: 0;
+
+  @media screen and (min-width: $tablet) {
+    margin-top: 0.5rem;
+  }
 }
 
 .bg-primary {
   background-color: $background !important;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.h1 {
+  line-height: 1.2;
+  color: $primary;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+
+  @media screen and (min-width: 600px) {
+    font-size: 2rem;
+  }
+
+  @media screen and (min-width: $tablet) {
+    font-size: 3rem;
+  }
+}
+
+.control-btns {
+  position: absolute;
+  top: 14px;
+  right: 8px;
+  z-index: 2;
+  display: grid;
+  height: 32px;
+  grid-template-columns: repeat(2, auto);
+  grid-gap: 8px;
+}
+
+.icon-btn {
+  appearance: none;
+  background: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 2px;
+  overflow: hidden;
+  width: 28px;
+  height: 28px;
+  border: 2px solid currentColor;
+  border-radius: 4px;
+
+  &:active {
+    transform: scale(1.1);
+  }
+
+  & svg {
+    fill: currentColor;
+  }
 }

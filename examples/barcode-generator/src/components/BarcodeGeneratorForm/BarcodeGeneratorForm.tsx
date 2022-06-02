@@ -1,5 +1,5 @@
 import { BarcodeOtions, BarcodeElement } from '@solid-bricks/barcode';
-import { For, JSX } from 'solid-js';
+import { For, JSX, Switch, Match } from 'solid-js';
 import styles from './styles.module.scss';
 
 export type BarcodeGeneratorFormValues = Required<
@@ -15,6 +15,8 @@ export type BarcodeGeneratorFormValues = Required<
     | 'format'
     | 'textAlign'
     | 'textPosition'
+    | 'displayValue'
+    | 'font'
   >
 > & {
   value: string;
@@ -69,7 +71,7 @@ export interface BarcodeGeneratorFormProps {
   class?: string | undefined;
   onInuput(
     name: keyof BarcodeGeneratorFormValues,
-    value: string | number
+    value: string | number | boolean
   ): void;
 }
 
@@ -82,6 +84,25 @@ const inputFormList: (
     label: 'barcode value',
     name: 'value',
     id: 'bar-value',
+  },
+  {
+    type: 'checkbox',
+    label: 'show text',
+    name: 'displayValue',
+    id: 'bar-display-value',
+  },
+  {
+    options: [
+      'monospace',
+      'sans-serif',
+      'serif',
+      'fantasy',
+      'cursive',
+      'system-ui',
+    ],
+    id: 'bar-text-font',
+    label: 'font',
+    name: 'font',
   },
   { type: 'text', label: 'text override', name: 'text', id: 'bar-text' },
   {
@@ -136,7 +157,7 @@ const inputFormList: (
     name: 'width',
     id: 'bar-width',
     otherProps: {
-      min: '0',
+      min: '1',
       step: '1',
       max: '5',
     },
@@ -176,10 +197,17 @@ export function BarcodeGeneratorForm(
       return;
     }
 
-    let value: string | number = (evt.target as HTMLInputElement).value ?? '';
+    let value: string | number | boolean =
+      (evt.target as HTMLInputElement).value ?? '';
 
-    if (evt.target.getAttribute('type')?.toLowerCase() === 'range') {
+    const type = evt.target.getAttribute('type')?.toLowerCase() ?? '';
+
+    if (type === 'range') {
       value = Number(value);
+    }
+
+    if (type === 'checkbox') {
+      value = !!(evt.target as HTMLInputElement)?.checked;
     }
 
     props.onInuput(
@@ -194,51 +222,73 @@ export function BarcodeGeneratorForm(
       onInput={handleInput}
     >
       <For each={inputFormList}>
-        {(item) => {
-          if ('options' in item) {
-            return (
-              <div class="field" data-field-type="select">
-                <label class="label" for={item.id}>
-                  {item.label}
-                </label>
-                <div class="select">
-                  <select value={props.values[item.name]} name={item.name}>
-                    <For each={item.options}>
-                      {(option) => {
-                        const value =
-                          typeof option === 'string' ? option : option.value;
-                        const label =
-                          typeof option === 'string'
-                            ? option
-                            : option?.label ?? value;
+        {(item) => (
+          <Switch>
+            <Match when={'options' in item && item}>
+              {(item) => (
+                <div class="field" data-field-type="select">
+                  <label class="label" for={item.id}>
+                    {item.label}
+                  </label>
+                  <div class="select">
+                    <select
+                      value={String(props.values[item.name])}
+                      name={item.name}
+                    >
+                      <For each={item.options}>
+                        {(option) => {
+                          const value =
+                            typeof option === 'string' ? option : option.value;
+                          const label =
+                            typeof option === 'string'
+                              ? option
+                              : option?.label ?? value;
 
-                        return <option value={value}>{label}</option>;
-                      }}
-                    </For>
-                  </select>
+                          return <option value={value}>{label}</option>;
+                        }}
+                      </For>
+                    </select>
+                  </div>
                 </div>
-              </div>
-            );
-          }
-
-          return (
-            <div class="field" data-field-type={item.type}>
-              <label class="label" for={item.id}>
-                {item.label} {item.type === 'range' && props.values[item.name]}
-              </label>
-              <div class="control">
-                <input
-                  class="input"
-                  type={item.type}
-                  id={item.id}
-                  name={item.name}
-                  value={props.values[item.name]}
-                  {...item.otherProps}
-                />
-              </div>
-            </div>
-          );
-        }}
+              )}
+            </Match>
+            <Match when={'type' in item && item.type === 'checkbox' && item}>
+              {(item) => (
+                <div class="field" data-field-type={item.type}>
+                  <label for={item.id} class="checkbox label">
+                    {item.label}{' '}
+                    <input
+                      type="checkbox"
+                      name={item.name}
+                      id={item.id}
+                      checked={!!props.values[item.name]}
+                    />
+                  </label>
+                </div>
+              )}
+            </Match>
+            <Match when={'type' in item && item}>
+              {(item) => (
+                <div class="field" data-field-type={item.type}>
+                  <label class="label" for={item.id}>
+                    {item.label}{' '}
+                    {item.type === 'range' && props.values[item.name]}
+                  </label>
+                  <div class="control">
+                    <input
+                      class="input"
+                      type={item.type}
+                      id={item.id}
+                      name={item.name}
+                      value={String(props.values[item.name])}
+                      {...item.otherProps}
+                    />
+                  </div>
+                </div>
+              )}
+            </Match>
+          </Switch>
+        )}
       </For>
     </form>
   );
