@@ -4,7 +4,7 @@
 
 ## Description
 
-A solid-js `<Barcode />` component powered by [JsBarcode](https://github.com/lindell/JsBarcode).
+A [solidjs](https://www.solidjs.com/) `<Barcode />` component powered by [JsBarcode](https://github.com/lindell/JsBarcode).
 
 ## Installation
 
@@ -28,7 +28,7 @@ pnpm add @solid-bricks/barcode
 
 ## Examples
 
-- barcode-generator: **[site](https://fabervitale.github.io/solid-bricks/examples/barcode-generator) - [source](https://github.com/FaberVitale/solid-bricks/tree/main/examples/barcode-generator)**
+- **barcode-generator**: **[site](https://fabervitale.github.io/solid-bricks/examples/barcode-generator) - [source](https://github.com/FaberVitale/solid-bricks/tree/main/examples/barcode-generator)**
 
 ## Usage
 
@@ -47,17 +47,16 @@ render(() => <Barcode value="ping-pong" />, root);
 
 ## API Reference
 
-### Main barcode props
+### Barcode props
 
-#### value
+| name      | type                     |        required         | description                                                                                                                |
+| --------- | ------------------------ | :---------------------: | -------------------------------------------------------------------------------------------------------------------------- |
+| `value`   | `string`                 |         **yes**         | the value rendered in the barcode.                                                                                         |
+| `onError` | `Function`               | default `console.error` | Callback invoked whenever an error occurs while rendering the barcode.                                                     |
+| `as`      | `"svg"\|"img"\|"canvas"` |     default `"svg"`     | The element that displays the barcode.                                                                                     |
+| `options` | `Object`                 |      default: `{}`      | Additional barcode customization, see `JsBarcode` [wiki](https://github.com/lindell/JsBarcode/wiki/Options) for more info. |
 
-The rendered string, **required**.
-
-#### options
-
-`JsBarcode` options, see: https://github.com/lindell/JsBarcode/wiki/Options
-
-E.g.
+### Barcode options example
 
 ```ts
 {
@@ -80,18 +79,6 @@ E.g.
   marginRight: undefined
 }
 ```
-
-#### onError
-
-Invoked whenever an error occurs while rendering the barcode.
-
-Default value: `console.error`.
-
-#### as
-
-The element that displays the barcode, one of `svg` | `img` | `canvas`.
-
-Default value: `svg`.
 
 ### Other props
 
