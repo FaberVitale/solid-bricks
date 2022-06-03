@@ -1,5 +1,19 @@
 # @solid-bricks/barcode
 
+## 1.0.0
+
+### Major Changes
+
+- e7eeec1: BREAKING CHANGE: remove id prop
+
+### Minor Changes
+
+- e7eeec1: pass any prop to the element that renders the barcode using `elemProps`
+
+### Patch Changes
+
+- 8a53fe7: docs: document missing props
+
 ## 0.2.1
 
 ### Patch Changes
