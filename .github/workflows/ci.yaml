@@ -31,3 +31,5 @@ jobs:
         run: pnpm run build:packages
       - name: Lint
         run: pnpm run lint:eslint
+      - name: 'Test'
+        run: pnpm run test:packages
