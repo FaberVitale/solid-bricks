@@ -3,17 +3,35 @@
 .floatingBtn {
   position: absolute;
   z-index: 3;
-  top: 12px;
-  right: 12px;
+  top: 8px;
+  right: 8px;
   background: theme.$background;
 }
 
 .pre {
+  padding: 4px;
+
+  &.floatingCopyBtn {
+    padding-top: 52px;
+  }
+
+  &.staticCopyBtn {
+    display: flex;
+    flex-flow: ro;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   border-radius: 8px;
   font-size: 0.75rem;
   line-height: 1.1;
   max-width: 100%;
   overflow-x: hidden;
+  background: theme.$grey-lightest;
+
+  @media screen and (min-width: theme.$tablet) {
+    padding: 16px;
+  }
 
   code {
     max-width: 100%;

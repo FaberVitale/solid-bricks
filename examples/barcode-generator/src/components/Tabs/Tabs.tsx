@@ -43,13 +43,12 @@ export function Tabs(props: TabsProps): JSX.Element {
   );
 }
 
-export type TabContentProps = BaseTabsProps &
+export type TabContentProps = Omit<BaseTabsProps, 'tabs'> &
   Omit<JSX.IntrinsicElements['div'], 'id'> & { id: string };
 
 export function TabContent(props: TabContentProps): JSX.Element {
   const [local, otherProps] = splitProps(props, [
     'children',
-    'tabs',
     'classList',
     'class',
     'id',
@@ -62,6 +61,7 @@ export function TabContent(props: TabContentProps): JSX.Element {
       class={styles.tabContent}
       classList={{
         ...local.classList,
+        [local.class]: !!local.class,
         'is-hidden': local.activeTab !== `#${local.id}`,
       }}
       {...otherProps}

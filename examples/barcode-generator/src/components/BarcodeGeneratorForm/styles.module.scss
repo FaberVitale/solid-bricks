@@ -1,7 +1,7 @@
 .form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 4px;
+  padding: 4px 0;
   grid-gap: 8px;
 
   :global(.field) {
@@ -10,8 +10,14 @@
   }
 
   :global(.field[data-field-type='select']),
+  :global(.field[data-field-type='checkbox']),
   :global(.field[data-field-type='color']) {
     grid-column: span 1;
+  }
+
+  :global(.field[data-field-type='checkbox']) {
+    display: flex;
+    flex-flow: column nowrap;
   }
 
   :global(.label)::first-letter {
@@ -19,6 +25,14 @@
   }
 
   :global(.label) {
+    font-weight: 700;
     text-transform: lowercase;
+  }
+
+  :global(.field > .checkbox) {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 }

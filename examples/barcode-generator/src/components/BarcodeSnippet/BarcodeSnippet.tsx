@@ -1,23 +1,29 @@
-import { JSX, createMemo } from 'solid-js';
+import { JSX, createMemo, splitProps } from 'solid-js';
 import { BarcodeProps } from '@solid-bricks/barcode';
-import { CodeSnippet } from '../CodeSnippet/CodeSnippet';
+import { CodeSnippet, CodeSnippetProps } from '../CodeSnippet/CodeSnippet';
 
-export type BarcodeSnippetProps = BarcodeProps;
+export type BarcodeSnippetProps = {
+  barcodeProps: BarcodeProps;
+} & CodeSnippetProps;
 
 export function BarcodeSnippet(props: BarcodeSnippetProps): JSX.Element {
+  const [local, otherProps] = splitProps(props, ['barcodeProps']);
+
   const serializedOptions = createMemo(() => {
-    return props.options ? JSON.stringify(props.options, null, ' ') : undefined;
+    return local.barcodeProps.options
+      ? JSON.stringify(local.barcodeProps.options, null, ' ')
+      : undefined;
   });
 
   const indent = '\u0020\u0020';
   const jsxIndent = indent + indent;
 
   return (
-    <CodeSnippet>
+    <CodeSnippet {...otherProps}>
       {"import { Barcode } from '@solid-bricks/barcode';\n\n"}
       const options = {serializedOptions()};{'\n'}
       const barcode ={' '}
-      {`(\n${indent}<Barcode\n${jsxIndent}options={options}\n${jsxIndent}as="${props.as}"\n${jsxIndent}value="${props.value}"\n${indent}/>\n);`}
+      {`(\n${indent}<Barcode\n${jsxIndent}options={options}\n${jsxIndent}as="${local.barcodeProps.as}"\n${jsxIndent}value="${local.barcodeProps.value}"\n${indent}/>\n);`}
     </CodeSnippet>
   );
 }

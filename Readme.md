@@ -2,7 +2,7 @@
 
 ## Packages
 
-- [@solid-bricks/barcode](./packages/barcode/Readme.md)
+- [@solid-bricks/barcode](./packages/barcode/Readme.md) - [npm](https://www.npmjs.com/package/@solid-bricks/barcode)
 
 ## License
 
