@@ -2,16 +2,22 @@ import {
   createEffect,
   createSignal,
   JSX,
+  mergeProps,
   onCleanup,
   splitProps,
 } from 'solid-js';
 import { ClipboardButton } from '../ClipboardButton/ClipboardButton';
 import styles from './styles.module.scss';
 
-export type CodeSnippetProps = JSX.IntrinsicElements['pre'];
+export type CodeSnippetProps = JSX.IntrinsicElements['pre'] & {
+  copyBtnPosition?: 'floating' | 'none' | 'static';
+};
 
 export function CodeSnippet(props: CodeSnippetProps): JSX.Element {
-  const [local, otherProps] = splitProps(props, ['children', 'classList']);
+  const [local, otherProps] = splitProps(
+    mergeProps({ copyBtnPosition: 'floating' }, props),
+    ['children', 'classList', 'copyBtnPosition']
+  );
   const [latestCopiedSnippet, setLatestCopiedSnippet] = createSignal<
     string | null
   >(null);
@@ -31,24 +37,8 @@ export function CodeSnippet(props: CodeSnippetProps): JSX.Element {
     }
   });
 
-  const handleCopyRequest = (evt: MouseEvent) => {
-    if (!!evt.button || evt.defaultPrevented || !codeRef) {
-      return;
-    }
-
-    const snippet = codeRef.textContent ?? '<missing-snippet>';
-
-    window.navigator.clipboard.writeText(snippet).then(() => {
-      setLatestCopiedSnippet(snippet);
-    });
-  };
-
-  const getTextToCopy = () => {
-    if (!codeRef) {
-      return '';
-    }
-
-    return codeRef.textContent;
+  const getTextToCopy = (): string => {
+    return codeRef?.textContent || '';
   };
 
   return (
@@ -57,14 +47,19 @@ export function CodeSnippet(props: CodeSnippetProps): JSX.Element {
         ...local.classList,
         'position-relative': true,
         [styles.pre]: true,
+        [styles.floatingCopyBtn]: local.copyBtnPosition === 'floating',
+        [styles.staticCopyBtn]: local.copyBtnPosition === 'static',
       }}
       {...otherProps}
     >
+      <code ref={codeRef}>{local.children}</code>
       <ClipboardButton
-        class={styles.floatingBtn}
+        classList={{
+          'is-hidden': local.copyBtnPosition === 'none',
+          [styles.floatingBtn]: local.copyBtnPosition === 'floating',
+        }}
         getTextToCopy={getTextToCopy}
       />
-      <code ref={codeRef}>{local.children}</code>
     </pre>
   );
 }

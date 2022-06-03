@@ -7,7 +7,6 @@ import {
 } from './components/BarcodeGeneratorForm/BarcodeGeneratorForm';
 import JsBarcode from 'jsbarcode';
 import { BarcodeSnippet } from './components/BarcodeSnippet/BarcodeSnippet';
-import { createHashSignal } from './hooks/routing';
 import { TabContent, Tabs } from './components/Tabs/Tabs';
 import { CodeSnippet } from './components/CodeSnippet/CodeSnippet';
 import {
@@ -38,7 +37,6 @@ const App: Component = () => {
   const [barcodeRenderError, setBarcodeRenderError] = createSignal<
     string | null
   >(null);
-  const hash = createHashSignal();
   const [formValues, setFormValues] = createStore<{
     values: BarcodeGeneratorFormValues;
   }>({
@@ -79,45 +77,41 @@ const App: Component = () => {
     link.click();
   };
 
-  const activeTab = () => {
-    const currentTab = hash().toLowerCase();
-
-    if (tabs.some((r) => r.hash.toLowerCase() === currentTab)) {
-      return currentTab;
-    }
-
-    return tabs[0].hash;
-  };
-
   return (
     <main class="main">
-      <header class="is-flex is-flex-direction-row is-align-items-center mb-5 px-3">
+      <header class="is-flex is-flex-direction-row is-align-items-center mb-5 pl-2">
         <h1 class="h1">@solid-bricks/barcode</h1>
-        <Barcode
-          value="p"
-          as="svg"
-          class="barcode-logo"
-          elemProps={{ 'aria-hidden': true }}
-          options={{
-            displayValue: false,
-            width: 1,
-            height: 32,
-            fontSize: 12,
-            lineColor: '#bb3c6a',
-            background: 'transparent',
-            textMargin: 0,
-            format: 'CODE128',
-            textAlign: 'center',
-            textPosition: 'bottom',
-          }}
+        <img
+          width={80}
+          height={80}
+          src="images/solid-bricks-logo.svg"
+          alt="@solid-bricks/barcode logo"
         />
       </header>
+      <article class="panel is-primary bg-primary">
+        <header>
+          <h2 class="panel-heading">Description</h2>
+        </header>
+        <div class="panel-block px-3 py-5">
+          <p>
+            A{' '}
+            <a rel="noopener" href="https://www.solidjs.com/">
+              SolidJs
+            </a>{' '}
+            Barcode component powered by{' '}
+            <a rel="noopener" href="https://github.com/lindell/JsBarcode">
+              JsBarcode
+            </a>
+            .
+          </p>
+        </div>
+      </article>
       <article class="panel is-primary bg-primary">
         <header>
           <h2 class="panel-heading">Installation</h2>
         </header>
         <div class="panel-block px-3 py-5 is-flex is-flex-direction-column is-align-items-flex-start">
-          <CodeSnippet class="w-100 p-5">
+          <CodeSnippet class="w-100" copyBtnPosition="static">
             {'npm i @solid-bricks/barcode'}
           </CodeSnippet>
         </div>
@@ -145,8 +139,12 @@ const App: Component = () => {
             </button>
           </div>
           <h2 class="panel-heading">Barcode Generator</h2>
-          <Tabs class="mb-1" activeTab={activeTab()} tabs={tabs} />
-          <TabContent class="px-3" activeTab={activeTab()} id="barcode-preview">
+          <Tabs class="mb-1" activeTab={tabs[0].hash} tabs={tabs} />
+          <TabContent
+            class="px-3"
+            activeTab={tabs[0].hash}
+            id="barcode-preview"
+          >
             <Barcode
               {...computedFormValuesProps().barcodeProps}
               onError={(val) => setBarcodeRenderError(String(val))}
