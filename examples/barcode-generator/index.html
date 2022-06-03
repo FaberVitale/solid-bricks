@@ -1,25 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>@solid-brick/barcode demo</title>
+    <meta
+      name="description"
+      content="A SolidJs Barcode component powered by JsBarcode."
+    />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <link rel="icon"
-    href="https://raw.githubusercontent.com/FaberVitale/solid-bricks/main/repo-media/solid-bricks-logo.svg"
-    type=”image/svg+xml”>
+    <meta name="theme-color" content="#bb3b6b" />
+    <link rel="icon" href="images/solid-bricks-logo.svg" type=”image/svg+xml”>
     <meta property="og:title" content="@solid-brick/barcode demo" />
     <meta property="og:type" content="website" />
-    <meta property="og:image:width" content="240" />
-    <meta property="og:image:height" content="240" />
-    <meta
-      property="og:image"
-      content="https://raw.githubusercontent.com/FaberVitale/solid-bricks/main/repo-media/solid-bricks-logo.svg"
-    />
+    <meta property="og:image:width" content="200" />
+    <meta property="og:image:height" content="200" />
+    <meta property="og:image" content="images/solid-bricks-logo.svg" />
     <meta
       property="og:description"
-      content="A site that showcases @solid-brick/barcode features."
+      content="A SolidJs Barcode component powered by JsBarcode."
     />
-    <title>@solid-brick/barcode demo</title>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="fabervitale.github.io" />
+    <meta
+      property="twitter:url"
+      content="https://fabervitale.github.io/solid-bricks/examples/barcode-generator/"
+    />
+    <meta name="twitter:title" content="@solid-brick/barcode demo" />
+    <meta
+      name="twitter:description"
+      content="A SolidJs Barcode component powered by JsBarcode."
+    />
+    <meta name="twitter:image" content="images/solid-bricks-logo.svg" />
+
     <style>
       @keyframes wavy-pulse {
         0% {
@@ -46,7 +58,7 @@
         bottom: 0;
         left: 0;
         background-size: cover;
-        background-image: url('/solid-bricks/examples/barcode-generator/images/bg-wave.svg');
+        background-image: url('/solid-bricks/examples/barcode-generator/images/bg-wave-bad-weather.svg');
         background-repeat: no-repeat;
         background-position: 50%;
         z-index: -1;
@@ -55,14 +67,14 @@
         will-change: transform;
       }
 
-      @media (prefers-reduced-motion), (max-width: 768px) {
+      @media (prefers-reduced-motion), (max-width: 499px) {
         body::after {
-          animation-play-state: paused;
+          animation: none;
         }
       }
     </style>
-    <script type="module" crossorigin src="/solid-bricks/examples/barcode-generator/assets/index.961a4ba7.js"></script>
-    <link rel="stylesheet" href="/solid-bricks/examples/barcode-generator/assets/index.9981f579.css">
+    <script type="module" crossorigin src="/solid-bricks/examples/barcode-generator/assets/index.3fd3eea4.js"></script>
+    <link rel="stylesheet" href="/solid-bricks/examples/barcode-generator/assets/index.75003315.css">
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
