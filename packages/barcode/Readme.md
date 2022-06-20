@@ -83,12 +83,6 @@ render(() => <Barcode value="ping-pong" />, root);
 }
 ```
 
-### Other props
-
-- [id](https://developer.mozilla.org/en-US/docs/Web/API/Element/id)
-- [class](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class)
-- [classlist](https://www.solidjs.com/docs/latest/api#classlist)
-
 More informations are available at https://github.com/lindell/JsBarcode.
 
 ### Reference

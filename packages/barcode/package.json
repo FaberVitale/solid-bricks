@@ -2,6 +2,7 @@
   "name": "@solid-bricks/barcode",
   "version": "1.0.0",
   "description": "A solid-js component that renders barcodes",
+  "homepage": "https://fabervitale.github.io/solid-bricks/examples/barcode-generator",
   "scripts": {
     "clean": "rimraf dist",
     "build": "rollup -c",
