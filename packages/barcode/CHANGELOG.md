@@ -1,5 +1,12 @@
 # @solid-bricks/barcode
 
+## 1.0.1
+
+### Patch Changes
+
+- eac6160: docs: remove obsolete doc section
+- eac6160: add package.json['homepage'] in @solid-bricks/barcode
+
 ## 1.0.0
 
 ### Major Changes
